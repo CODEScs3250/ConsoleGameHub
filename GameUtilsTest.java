@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
@@ -27,4 +28,12 @@ public class GameUtilsTest {
               String selectedWord = GameUtils.getRandomWord(null);
               assertNull(selectedWord);
         }
+	@Test 
+	void testCenterText(){
+	     String text = "Hello world";
+	     String expectedCenteredText = "_______Hello World_______";
+	     String centeredText = GameUtils.centerText(text);
+	     assertEquals(expectedCenteredText, centeredText, "the text values should be equal");
+
+	}
 }

@@ -29,4 +29,15 @@ public final class GameUtils {
             }
         return words.get(RANDOM.nextInt(words.size()));
      }
-}
+
+    public static String centerText(String text){
+	if(text == null || text.isEmpty()){
+	    throw new IllegalArgumentException("String is empty");
+   	}
+	return text;
+	}
+    }	
+    
+
+
+
