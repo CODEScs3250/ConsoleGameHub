@@ -29,6 +29,11 @@ public class GameLauncher {
     /** Game history tracker. */
     private final GameHistoryTracker historyTracker;
 
+    /** Formats the "Now Playing" header. */
+    private static String formatNowPlaying(final String name) {
+	return "=== Now Playing: " + name.toUpperCase() + " ===";
+}
+
     /**
      * Default constructor, used in production.
      * Loads default games, scanner, and history tracker.
@@ -130,6 +135,10 @@ public class GameLauncher {
                     System.out.println("Goodbye!");
                 } else if (choice > 0 && choice <= this.games.size()) {
                     Game game = this.games.get(choice - 1);
+
+		    System.out.println(formatNowPlaying(game.getName()));
+		    System.out.println();
+
                     Optional<Integer> score = game.play();
                     this.historyTracker.recordPlay(game.getName(),
                                                    score.orElse(null));
